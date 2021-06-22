@@ -21,7 +21,6 @@ export class Employee extends BaseEntity{
 
     @ManyToMany(() => Department, department => department.employees,{
         eager: true,
-        cascade: true,
     })
     @JoinTable()
     departments: Department[];

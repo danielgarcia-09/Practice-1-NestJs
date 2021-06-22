@@ -21,17 +21,17 @@ export class DepartmentService {
         return plainToClass(ReadDepartmentDto, departments);
     }
 
-    async updateDescription( departmentId: number, description: Partial<DepartmentDto> ): Promise<Boolean> {
+    async updateDescription( departmentId: number, newDescription: Partial<DepartmentDto> ): Promise<Boolean> {
         if(!departmentId){
             throw new BadRequestException('ID does not exist');
         }
 
-        if(!description){
+        if(!newDescription){
             throw new BadRequestException('Description was not given');
         }
 
         const updatedDepartment = await this._departmentRepository.update(departmentId,{
-            description: description.description
+            description: newDescription.description
         });
 
         if(!updatedDepartment){

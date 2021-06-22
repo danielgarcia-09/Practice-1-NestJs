@@ -1,4 +1,5 @@
 import { IsNotEmpty } from "class-validator";
+import { Department } from '../../department/department.entity';
 
 export class EmployeeDto {
 
@@ -13,4 +14,7 @@ export class EmployeeDto {
 
     @IsNotEmpty()
     isWorking: boolean;
+
+    @IsNotEmpty()
+    departments: Department[];
 }
